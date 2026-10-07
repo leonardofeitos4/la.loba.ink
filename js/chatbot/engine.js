@@ -125,3 +125,30 @@ function closeBot() {
   document.getElementById('bot-panel').classList.remove('open');
   document.getElementById('bot-launcher').classList.remove('hidden');
 }
+
+/* Monta o botão flutuante e a janela do chat (igual em todas as páginas) */
+function mountBot() {
+  document.body.insertAdjacentHTML('beforeend', `
+    <a class="wa-float js-wa" data-msg="quero mais informações." href="#" aria-label="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="bot-launcher" class="bot-launcher" onclick="openBot()" aria-label="Falar com a ${CONFIG.BOT_NAME}">
+      <span class="bot-ava" aria-hidden="true">L</span>
+      <span class="bot-badge">1</span>
+    </button>
+    <div id="bot-panel" class="bot-panel" role="dialog" aria-label="Chat com a ${CONFIG.BOT_NAME}">
+      <div class="bot-head">
+        <div class="bot-head-ava"><span class="bot-ava" aria-hidden="true">L</span></div>
+        <div class="bot-head-info">
+          <div class="bot-head-name"><span class="bot-online-dot"></span>${CONFIG.BOT_NAME}</div>
+          <div class="bot-head-sub">Assistente da La Loba Ink · Online</div>
+        </div>
+        <button class="bot-close" onclick="closeBot()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="bot-handoff">
+        <div class="bot-handoff-txt">Preferes falar diretamente com a Marta?</div>
+        <a class="bot-handoff-btn js-wa" data-msg="quero falar com a Marta." href="#">💬 WhatsApp</a>
+      </div>
+      <div class="chat-area" id="chat-area"></div>
+    </div>`);
+}

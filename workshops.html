@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Workshops · La Loba Ink</title>
+  <meta name="description" content="Workshops de tatuagem com a Marta Loba. Entra na lista e recebe as novidades primeiro.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Workshops · La Loba Ink">
+  <meta property="og:description" content="Workshops de tatuagem com a Marta Loba. Entra na lista e recebe as novidades primeiro.">
+  <meta property="og:image" content="assets/ela.jpg">
+  <meta name="theme-color" content="#0c0c0c">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+<main class="page page-sub">
+
+  <!-- Topo com voltar -->
+  <nav class="topbar">
+    <a href="index.html" class="topbar-back" aria-label="Voltar ao início"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="index.html" class="topbar-brand">La Loba <em>Ink</em></a>
+    <button class="topbar-bot js-bot" aria-label="Tirar dúvidas com a Luna"><span class="bot-ava">L</span></button>
+  </nav>
+
+  <header class="page-head">
+    <h1 class="section-title">Workshops</h1>
+    <p class="section-lead">Aprende a tatuar com a Marta.</p>
+  </header>
+
+  <section>
+    <div class="workshop-card">
+      <span class="tag">Em breve</span>
+      <h3>Workshop de tatuagem</h3>
+      <p>Datas, local e conteúdo ainda por confirmar. Deixa o teu contacto e recebe as novidades em primeira mão.</p>
+      <a class="btn btn-main btn-inline js-wa" data-msg="quero entrar na lista dos workshops de tatuagem." href="#">
+        <i class="fa-brands fa-whatsapp"></i> Quero entrar na lista
+      </a>
+    </div>
+  </section>
+
+  <!-- Fecho comum: marcar + dúvidas -->
+  <div class="cta-final">
+    <a class="btn btn-main js-wa" data-msg="quero marcar uma tattoo." href="#">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span><strong>Marcar a minha tattoo</strong><small>Pede o teu orçamento pelo WhatsApp</small></span>
+    </a>
+    <a class="btn btn-luna js-bot" href="#">
+      <span class="btn-ava bot-ava">L</span>
+      <span><strong>Tirar dúvidas com a Luna</strong><small>Assistente da La Loba Ink</small></span>
+    </a>
+  </div>
+
+  <footer class="footer">
+    <span>© La Loba Ink · Marta Loba</span>
+    <a href="https://www.instagram.com/evolvify.cloud/" target="_blank" rel="noopener">
+      Desenvolvido por <strong>Evolvify</strong> <i class="fa-brands fa-instagram"></i>
+    </a>
+  </footer>
+</main>
+
+<!-- Scripts (ordem de dependência). O chat da Luna é montado pelo engine.js -->
+<script src="js/chatbot/config.js"></script>
+<script src="js/galeria.js"></script>
+<script src="js/chatbot/flows.js"></script>
+<script src="js/chatbot/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

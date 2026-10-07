@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════
-   APP — Google Analytics, links do WhatsApp e galeria
-   Depende de: config.js, galeria.js, engine.js
+   APP — Google Analytics, chat, links do WhatsApp e galerias
+   Depende de: config.js, galeria.js, flows.js, engine.js
+   (usado em todas as páginas)
 ═══════════════════════════════════ */
 
 /* Google Analytics (só carrega se CONFIG.GA_ID estiver preenchido) */
@@ -15,6 +16,9 @@ if (CONFIG.GA_ID) {
   gtag('config', CONFIG.GA_ID);
 }
 
+/* Chat da Luna + botão flutuante do WhatsApp */
+mountBot();
+
 /* Links de WhatsApp fixos da página: montados a partir de data-msg */
 document.querySelectorAll('.js-wa').forEach(a => {
   a.href = waLink(a.dataset.msg);
@@ -28,4 +32,10 @@ document.addEventListener('click', e => {
   if (a) track(`💬 Foi pro WhatsApp: ${a.dataset.msg}`);
 });
 
+/* Botões que abrem a Luna (ex: "Tirar dúvidas com a Luna") */
+document.querySelectorAll('.js-bot').forEach(b =>
+  b.addEventListener('click', e => { e.preventDefault(); openBot(); })
+);
+
+/* Galerias: cada página só tem as partes dela; initGaleria monta o que existir */
 initGaleria();

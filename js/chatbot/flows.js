@@ -8,7 +8,7 @@
      chips: [
        { l: 'Label', f: 'flow_id' }    → navega para outro flow
        { l: 'Label', wa: 'mensagem' }  → abre WhatsApp (recebe CONFIG.WA_PREFIX na frente)
-       { l: 'Label', href: '#id' }     → leva a uma parte da página
+       { l: 'Label', href: 'pagina.html' } → abre outra página (ou link externo)
      ]
    }
 ═══════════════════════════════════ */
@@ -58,7 +58,7 @@ const flows = {
     msg: `<strong>Fineline</strong> é o traço fino e delicado. Perfeito para tattoos discretas, símbolos e desenhos minimalistas. ✒️`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Fineline.' },
-      { l: '🖼️ Ver trabalhos', href: '#estilos' },
+      { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=fineline' },
       { l: 'Outros estilos', f: 'estilos' },
     ]
   },
@@ -66,7 +66,7 @@ const flows = {
     msg: `<strong>Floral Fineline</strong> são flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo. 🌿<br><br>É uma das especialidades da Marta.`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Floral Fineline.' },
-      { l: '🖼️ Ver trabalhos', href: '#estilos' },
+      { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=floral-fineline' },
       { l: 'Outros estilos', f: 'estilos' },
     ]
   },
@@ -74,7 +74,7 @@ const flows = {
     msg: `<strong>Microrealismo</strong> é detalhe de fotografia em tamanho pequeno: retratos, animais, objetos com significado. 🔍<br><br>Funciona melhor a partir de uns 5 cm, para o detalhe durar com o tempo.`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Microrealismo.' },
-      { l: '🖼️ Ver trabalhos', href: '#estilos' },
+      { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=microrealismo' },
       { l: 'Outros estilos', f: 'estilos' },
     ]
   },
@@ -82,7 +82,7 @@ const flows = {
     msg: `<strong>Realismo</strong> são peças maiores, com sombra e volume, fiéis à referência. 🖤<br><br>Projetos grandes podem ser feitos em mais de uma sessão.`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Realismo.' },
-      { l: '🖼️ Ver trabalhos', href: '#estilos' },
+      { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=realismo' },
       { l: 'Outros estilos', f: 'estilos' },
     ]
   },
@@ -90,7 +90,7 @@ const flows = {
     msg: `<strong>Lettering</strong> é escrita com estilo: nomes, datas, frases. A letra é pensada para ti e para o local do corpo. ✍️`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Lettering.' },
-      { l: '🖼️ Ver trabalhos', href: '#estilos' },
+      { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=lettering' },
       { l: 'Outros estilos', f: 'estilos' },
     ]
   },
@@ -99,7 +99,7 @@ const flows = {
   disponiveis: {
     msg: `A Marta tem <strong>desenhos disponíveis</strong>: criações dela, prontas a tatuar, e cada uma é feita uma só vez. 🎨<br><br>Queres ver?`,
     chips: [
-      { l: '🖼️ Ver desenhos', href: '#disponiveis' },
+      { l: '🖼️ Ver desenhos', href: 'disponiveis.html' },
       { l: '💬 Gostei de um', wa: 'gostei de um dos desenhos disponíveis.' },
     ]
   },

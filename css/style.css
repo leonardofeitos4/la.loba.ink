@@ -213,22 +213,9 @@ a { color: inherit; }
 .galeria-3 + .link-wa { margin-top: 14px; }
 .galeria-3 .foto-vazia span { font-size: 10.5px; text-align: center; padding: 0 6px; }
 
-/* Feedback: carrossel horizontal */
-.feedbacks {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  margin: 20px -16px 0;
-  padding: 0 16px 4px;
-  scrollbar-width: none;
-}
-.feedbacks::-webkit-scrollbar { display: none; }
-.feedbacks .foto {
-  flex: 0 0 62%;
-  aspect-ratio: 9 / 16;
-  scroll-snap-align: start;
-}
+/* Feedback: prints de conversa, 2 por linha */
+.feedbacks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 20px; }
+.feedbacks .foto, .feedbacks .foto:first-child { grid-column: auto; aspect-ratio: 9 / 16; }
 .feedbacks .foto img { object-fit: contain; background: var(--bg-2); }
 
 /* ── Workshops ── */
@@ -290,3 +277,77 @@ a { color: inherit; }
   .hero { margin: 0; }
   .hero-photo { border-radius: 0 0 28px 28px; }
 }
+
+/* ═══════════════════════════════════
+   PÁGINAS INTERNAS + BOTÕES NOVOS
+═══════════════════════════════════ */
+
+/* Seta à direita dos botões que abrem página */
+.btn-go { margin-left: auto; font-size: 13px !important; width: auto !important; color: var(--dim) !important; }
+
+/* Avatar "L" dentro de botões */
+.btn-ava {
+  width: 24px; height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 15px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.btn-luna { border-color: var(--line-strong); }
+
+/* Topo das páginas internas */
+.page-sub { padding-top: 0; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 -16px;
+  padding: 12px 16px;
+  background: rgba(12,12,12,.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-back, .topbar-bot {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.topbar-bot { background: var(--ink); border-color: var(--ink); }
+.topbar-bot .bot-ava { font-size: 20px; }
+.topbar-brand {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.topbar-brand em { color: var(--accent); }
+
+.page-head { padding: 32px 0 4px; }
+.page-sub .tabs { margin-top: 16px; }
+
+/* Fecho comum das páginas internas */
+.cta-final { display: grid; gap: 10px; margin-top: 44px; }
+
+/* Foto na página Sobre */
+.sobre-foto {
+  margin: 20px 0 6px;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.2;
+}
+.sobre-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; filter: grayscale(1); }

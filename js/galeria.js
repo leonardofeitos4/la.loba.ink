@@ -48,7 +48,7 @@ const DISPONIVEIS = [];
 /* Feedback de clientes (prints ou fotos) — pasta assets/feedback/ */
 const FEEDBACKS = [];
 
-const PLACEHOLDERS = 3;
+const PLACEHOLDERS = 5;
 
 function vazios(n, texto) {
   return Array.from({ length: n }, () =>
@@ -83,23 +83,38 @@ function renderEstilo(id) {
     : vazios(PLACEHOLDERS, 'colocar foto ainda');
 }
 
+/* Monta só as galerias que existem na página atual */
 function initGaleria() {
-  document.getElementById('tabs').innerHTML = ESTILOS.map(e =>
-    `<button class="tab" role="tab" data-id="${e.id}">${e.nome}</button>`
-  ).join('');
-  document.querySelectorAll('.tab').forEach(t =>
-    t.addEventListener('click', () => {
-      renderEstilo(t.dataset.id);
-      track(`Viu o estilo: ${t.textContent}`);
-    })
-  );
-  renderEstilo(ESTILOS[0].id);
+  const tabs = document.getElementById('tabs');
+  if (tabs) {
+    tabs.innerHTML = ESTILOS.map(e =>
+      `<button class="tab" role="tab" data-id="${e.id}">${e.nome}</button>`
+    ).join('');
+    tabs.querySelectorAll('.tab').forEach(t =>
+      t.addEventListener('click', () => {
+        renderEstilo(t.dataset.id);
+        history.replaceState(null, '', `?estilo=${t.dataset.id}`);
+        track(`Viu o estilo: ${t.textContent}`);
+      })
+    );
+    // trabalhos.html?estilo=fineline abre direto nesse estilo
+    const inicial = new URLSearchParams(location.search).get('estilo');
+    renderEstilo(inicial || ESTILOS[0].id);
+    const ativa = tabs.querySelector('.tab.active');
+    if (ativa) tabs.scrollLeft = ativa.offsetLeft - 16;
+  }
 
-  document.getElementById('galeria-disponiveis').innerHTML = DISPONIVEIS.length
-    ? fotos('disponiveis', DISPONIVEIS, 'Desenho disponível – La Loba Ink')
-    : vazios(PLACEHOLDERS, 'colocar desenho ainda');
+  const disp = document.getElementById('galeria-disponiveis');
+  if (disp) {
+    disp.innerHTML = DISPONIVEIS.length
+      ? fotos('disponiveis', DISPONIVEIS, 'Desenho disponível – La Loba Ink')
+      : vazios(6, 'colocar desenho ainda');
+  }
 
-  document.getElementById('feedbacks').innerHTML = FEEDBACKS.length
-    ? fotos('feedback', FEEDBACKS, 'Feedback de cliente – La Loba Ink')
-    : vazios(PLACEHOLDERS, 'colocar feedback ainda');
+  const fb = document.getElementById('feedbacks');
+  if (fb) {
+    fb.innerHTML = FEEDBACKS.length
+      ? fotos('feedback', FEEDBACKS, 'Feedback de cliente – La Loba Ink')
+      : vazios(4, 'colocar feedback ainda');
+  }
 }
