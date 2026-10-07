@@ -67,6 +67,13 @@ a { color: inherit; }
   margin: 8px 0 10px;
 }
 .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.hero-motto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
 .hero-sub { font-size: 12.5px; color: var(--dim); letter-spacing: .04em; }
 
 /* ── Botões / links ── */
@@ -199,6 +206,30 @@ a { color: inherit; }
   letter-spacing: .06em;
 }
 .foto-vazia i { font-size: 22px; opacity: .6; }
+
+/* Desenhos disponíveis: 3 colunas, todos do mesmo tamanho */
+.galeria-3 { grid-template-columns: repeat(3, 1fr); margin-top: 20px; }
+.galeria-3 .foto, .galeria-3 .foto:first-child { grid-column: auto; aspect-ratio: 3 / 4; }
+.galeria-3 + .link-wa { margin-top: 14px; }
+.galeria-3 .foto-vazia span { font-size: 10.5px; text-align: center; padding: 0 6px; }
+
+/* Feedback: carrossel horizontal */
+.feedbacks {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin: 20px -16px 0;
+  padding: 0 16px 4px;
+  scrollbar-width: none;
+}
+.feedbacks::-webkit-scrollbar { display: none; }
+.feedbacks .foto {
+  flex: 0 0 62%;
+  aspect-ratio: 9 / 16;
+  scroll-snap-align: start;
+}
+.feedbacks .foto img { object-fit: contain; background: var(--bg-2); }
 
 /* ── Workshops ── */
 .workshop-card {

@@ -27,7 +27,10 @@ function showChips(chips, area) {
 
   let html = chips.map(c => {
     if (c.wa)   return `<a class="qrb qrb-wa js-wa" data-msg="${c.wa}" href="${waLink(c.wa)}" target="_blank" rel="noopener">${c.l}</a>`;
-    if (c.href) return `<a class="qrb" href="${c.href}" onclick="closeBot(); track('🔗 Abriu: ${c.l.replace(/'/g, "\\'")}')">${c.l}</a>`;
+    if (c.href) {
+      const ext = c.href.startsWith('http') ? ' target="_blank" rel="noopener"' : '';
+      return `<a class="qrb" href="${c.href}"${ext} onclick="closeBot(); track('🔗 Abriu: ${c.l.replace(/'/g, "\\'")}')">${c.l}</a>`;
+    }
     return `<button class="qrb" onclick="runFlow('${c.f}','${c.l.replace(/'/g, "\\'")}')">${c.l}</button>`;
   }).join('');
 
@@ -102,7 +105,7 @@ function userMsg(t) {
   if (!a) return;
   const lbl = document.createElement('div');
   lbl.className = 'mlbl u';
-  lbl.textContent = 'Você';
+  lbl.textContent = 'Tu';
   const msg = document.createElement('div');
   msg.className = 'msg user';
   msg.textContent = t;

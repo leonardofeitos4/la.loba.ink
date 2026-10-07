@@ -3,7 +3,7 @@
    Tudo o que muda de um biolink para outro fica aqui.
 ═══════════════════════════════════ */
 const CONFIG = {
-  WA: '351912572305',           // WhatsApp da Kamila (Portugal)
+  WA: '351912572305',           // WhatsApp da Marta Loba (Portugal)
   // Início de toda mensagem enviada ao WhatsApp (botões da página e do bot)
   WA_PREFIX: 'Olá! Vim do biolink da La Loba Ink e',
   BOT_NAME: 'Luna',

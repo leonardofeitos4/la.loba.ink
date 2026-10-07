@@ -1,18 +1,15 @@
 /* ═══════════════════════════════════
-   GALERIA — estilos da La Loba Ink
+   GALERIA — La Loba Ink
 
    Para colocar as fotos:
-   1. Salve as imagens em assets/estilos/<id>/  (ex: assets/estilos/fineline/1.jpg)
-   2. Liste os nomes em "fotos" do estilo:     fotos: ['1.jpg', '2.jpg', '3.jpg']
-   Enquanto "fotos" estiver vazio, aparecem os quadros "colocar foto ainda".
+   1. Salve as imagens na pasta indicada em cada lista
+      (ex: assets/estilos/fineline/1.jpg, assets/disponiveis/1.jpg, assets/feedback/1.jpg)
+   2. Liste os nomes dos arquivos:  fotos: ['1.jpg', '2.jpg', '3.jpg']
+   Enquanto a lista estiver vazia, aparecem os quadros "colocar foto ainda".
 ═══════════════════════════════════ */
+
+/* Estilos — os três primeiros são os da bio do Instagram */
 const ESTILOS = [
-  {
-    id: 'microrealismo',
-    nome: 'Microrealismo',
-    desc: 'Retratos, animais e objetos com detalhe de fotografia, em tamanho pequeno.',
-    fotos: [],
-  },
   {
     id: 'fineline',
     nome: 'Fineline',
@@ -21,8 +18,14 @@ const ESTILOS = [
   },
   {
     id: 'floral-fineline',
-    nome: 'Floral fineline',
-    desc: 'Flores e folhagens em traço fino, que acompanham o desenho do corpo.',
+    nome: 'Floral Fineline',
+    desc: 'Flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo.',
+    fotos: [],
+  },
+  {
+    id: 'microrealismo',
+    nome: 'Microrealismo',
+    desc: 'Retratos, animais e objetos com detalhe de fotografia, em tamanho pequeno.',
     fotos: [],
   },
   {
@@ -34,12 +37,30 @@ const ESTILOS = [
   {
     id: 'lettering',
     nome: 'Lettering',
-    desc: 'Nomes, datas e frases com letra pensada para você.',
+    desc: 'Nomes, datas e frases, com uma letra pensada para ti.',
     fotos: [],
   },
 ];
 
+/* Desenhos disponíveis (flash) — pasta assets/disponiveis/ */
+const DISPONIVEIS = [];
+
+/* Feedback de clientes (prints ou fotos) — pasta assets/feedback/ */
+const FEEDBACKS = [];
+
 const PLACEHOLDERS = 3;
+
+function vazios(n, texto) {
+  return Array.from({ length: n }, () =>
+    `<figure class="foto foto-vazia"><i class="fa-regular fa-image"></i><span>${texto}</span></figure>`
+  ).join('');
+}
+
+function fotos(pasta, lista, alt) {
+  return lista.map(f =>
+    `<figure class="foto"><img src="assets/${pasta}/${f}" alt="${alt}" loading="lazy"></figure>`
+  ).join('');
+}
 
 function renderEstilo(id) {
   const e = ESTILOS.find(x => x.id === id) || ESTILOS[0];
@@ -50,20 +71,16 @@ function renderEstilo(id) {
     t.setAttribute('aria-selected', on);
   });
 
+  const msg = `quero um orçamento de tattoo em ${e.nome}.`;
   document.getElementById('estilo-info').innerHTML =
     `<p>${e.desc}</p>
-     <a class="link-wa js-wa" data-msg="quero um orçamento de tattoo em ${e.nome}." href="${waLink(`quero um orçamento de tattoo em ${e.nome}.`)}" target="_blank" rel="noopener">
+     <a class="link-wa js-wa" data-msg="${msg}" href="${waLink(msg)}" target="_blank" rel="noopener">
        <i class="fa-brands fa-whatsapp"></i> Quero uma tattoo em ${e.nome}
      </a>`;
 
-  const g = document.getElementById('galeria');
-  g.innerHTML = e.fotos.length
-    ? e.fotos.map(f =>
-        `<figure class="foto"><img src="assets/estilos/${e.id}/${f}" alt="Tattoo ${e.nome}" loading="lazy"></figure>`
-      ).join('')
-    : Array.from({ length: PLACEHOLDERS }, () =>
-        `<figure class="foto foto-vazia"><i class="fa-regular fa-image"></i><span>colocar foto ainda</span></figure>`
-      ).join('');
+  document.getElementById('galeria').innerHTML = e.fotos.length
+    ? fotos(`estilos/${e.id}`, e.fotos, `Tattoo ${e.nome} – La Loba Ink`)
+    : vazios(PLACEHOLDERS, 'colocar foto ainda');
 }
 
 function initGaleria() {
@@ -77,4 +94,12 @@ function initGaleria() {
     })
   );
   renderEstilo(ESTILOS[0].id);
+
+  document.getElementById('galeria-disponiveis').innerHTML = DISPONIVEIS.length
+    ? fotos('disponiveis', DISPONIVEIS, 'Desenho disponível – La Loba Ink')
+    : vazios(PLACEHOLDERS, 'colocar desenho ainda');
+
+  document.getElementById('feedbacks').innerHTML = FEEDBACKS.length
+    ? fotos('feedback', FEEDBACKS, 'Feedback de cliente – La Loba Ink')
+    : vazios(PLACEHOLDERS, 'colocar feedback ainda');
 }
