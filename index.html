@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>La Loba Ink · Tatuagem fineline, microrealismo e floral</title>
+  <meta name="description" content="La Loba Ink – tatuagens em fineline, floral fineline, microrealismo, realismo e lettering. Marque a sua tattoo ou saiba dos workshops.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="La Loba Ink">
+  <meta property="og:description" content="Tatuagem fineline, floral, microrealismo, realismo e lettering.">
+  <meta property="og:image" content="assets/ela.jpg">
+  <meta name="theme-color" content="#0c0c0c">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+<main class="page">
+
+  <!-- ═══════ PERFIL ═══════ -->
+  <header class="hero">
+    <div class="hero-photo">
+      <img src="assets/ela.jpg" alt="Kamila Urbano, tatuadora da La Loba Ink" width="900" height="1200">
+    </div>
+    <div class="hero-text">
+      <span class="hero-kicker">Tattoo artist</span>
+      <h1>La Loba <em>Ink</em></h1>
+      <p class="hero-sub">Fineline · Floral · Microrealismo · Realismo · Lettering</p>
+    </div>
+  </header>
+
+  <!-- ═══════ LINKS ═══════ -->
+  <nav class="links">
+    <a class="btn btn-main js-wa" data-msg="quero marcar uma tattoo." href="#">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span><strong>Marcar a minha tattoo</strong><small>Orçamento pelo WhatsApp</small></span>
+    </a>
+    <a class="btn" href="#estilos">
+      <i class="fa-solid fa-feather-pointed"></i>
+      <span><strong>Ver trabalhos</strong><small>Galeria por estilo</small></span>
+    </a>
+    <a class="btn" href="#workshops">
+      <i class="fa-solid fa-pen-nib"></i>
+      <span><strong>Workshops</strong><small>Aprenda a tatuar</small></span>
+    </a>
+    <a class="btn" href="https://www.instagram.com/la.loba.ink/" target="_blank" rel="noopener">
+      <i class="fa-brands fa-instagram"></i>
+      <span><strong>Instagram</strong><small>@la.loba.ink</small></span>
+    </a>
+  </nav>
+
+  <!-- ═══════ SOBRE ═══════ -->
+  <section class="section sobre" id="sobre">
+    <h2 class="section-title">Sobre a Kamila</h2>
+    <p>Sou a <strong>Kamila Urbano</strong>, a tatuadora por trás da La Loba Ink. Trabalho com traço fino, flores, microrealismo, realismo e lettering, sempre com desenho exclusivo, pensado para o seu corpo e para a sua história.</p>
+    <p>A loba representa força, instinto e liberdade. É com essa energia que recebo cada pessoa: com calma, escuta e cuidado em cada detalhe.</p>
+    <blockquote>“Cada tattoo é uma história que você escolhe levar na pele.”</blockquote>
+    <ul class="sobre-destaques">
+      <li><strong>5</strong><span>estilos</span></li>
+      <li><strong>100%</strong><span>desenhos exclusivos</span></li>
+      <li><strong>Em breve</strong><span>workshops</span></li>
+    </ul>
+  </section>
+
+  <!-- ═══════ ESTILOS / GALERIA ═══════ -->
+  <section class="section" id="estilos">
+    <h2 class="section-title">Estilos</h2>
+    <p class="section-lead">Toque num estilo para ver os trabalhos.</p>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="estilo-info" id="estilo-info"></div>
+    <div class="galeria" id="galeria"></div>
+  </section>
+
+  <!-- ═══════ WORKSHOPS ═══════ -->
+  <section class="section" id="workshops">
+    <h2 class="section-title">Workshops</h2>
+    <div class="workshop-card">
+      <span class="tag">Em breve</span>
+      <h3>Workshop de tatuagem</h3>
+      <p>Datas, local e conteúdo ainda a confirmar. Deixe o seu contacto e receba as novidades em primeira mão.</p>
+      <a class="btn btn-main btn-inline js-wa" data-msg="quero saber dos próximos workshops." href="#">
+        <i class="fa-brands fa-whatsapp"></i> Quero saber dos workshops
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© La Loba Ink</span>
+    <a href="https://www.instagram.com/evolvify.cloud/" target="_blank" rel="noopener">
+      Desenvolvido por <strong>Evolvify</strong> <i class="fa-brands fa-instagram"></i>
+    </a>
+  </footer>
+</main>
+
+<!-- Botão flutuante WhatsApp -->
+<a class="wa-float js-wa" data-msg="quero mais informações." href="#" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ═══════ LUNA · CHATBOT ═══════ -->
+<button id="bot-launcher" class="bot-launcher" onclick="openBot()" aria-label="Falar com a Luna">
+  <span class="bot-ava" aria-hidden="true">L</span>
+  <span class="bot-badge">1</span>
+</button>
+
+<div id="bot-panel" class="bot-panel" role="dialog" aria-label="Chat com a Luna">
+  <div class="bot-head">
+    <div class="bot-head-ava"><span class="bot-ava" aria-hidden="true">L</span></div>
+    <div class="bot-head-info">
+      <div class="bot-head-name"><span class="bot-online-dot"></span>Luna</div>
+      <div class="bot-head-sub">Assistente da La Loba Ink · Online</div>
+    </div>
+    <button class="bot-close" onclick="closeBot()" aria-label="Fechar">&times;</button>
+  </div>
+  <div class="bot-handoff">
+    <div class="bot-handoff-txt">Prefere falar direto com a Kamila?</div>
+    <a class="bot-handoff-btn js-wa" data-msg="quero falar com a Kamila." href="#">💬 WhatsApp</a>
+  </div>
+  <div class="chat-area" id="chat-area"></div>
+</div>
+
+<!-- Scripts (ordem de dependência) -->
+<script src="js/chatbot/config.js"></script>
+<script src="js/galeria.js"></script>
+<script src="js/chatbot/flows.js"></script>
+<script src="js/chatbot/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
