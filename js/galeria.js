@@ -78,9 +78,15 @@ function renderEstilo(id) {
        <i class="fa-brands fa-whatsapp"></i> Quero uma tattoo em ${e.nome}
      </a>`;
 
-  document.getElementById('galeria').innerHTML = e.fotos.length
-    ? fotos(`estilos/${e.id}`, e.fotos, `Tattoo ${e.nome} – La Loba Ink`)
-    : vazios(PLACEHOLDERS, 'colocar foto ainda');
+  // Na página inicial (data-limite="3") mostra só as principais de cada estilo
+  const g = document.getElementById('galeria');
+  const limite = Number(g.dataset.limite) || Infinity;
+  g.innerHTML = e.fotos.length
+    ? fotos(`estilos/${e.id}`, e.fotos.slice(0, limite), `Tattoo ${e.nome} – La Loba Ink`)
+    : vazios(Math.min(PLACEHOLDERS, limite), 'colocar foto ainda');
+
+  const todos = document.getElementById('ver-todos');
+  if (todos) todos.href = `trabalhos.html?estilo=${e.id}`;
 }
 
 /* Monta só as galerias que existem na página atual */
@@ -93,7 +99,7 @@ function initGaleria() {
     tabs.querySelectorAll('.tab').forEach(t =>
       t.addEventListener('click', () => {
         renderEstilo(t.dataset.id);
-        history.replaceState(null, '', `?estilo=${t.dataset.id}`);
+        if (location.pathname.endsWith('trabalhos.html')) history.replaceState(null, '', `?estilo=${t.dataset.id}`);
         track(`Viu o estilo: ${t.textContent}`);
       })
     );
@@ -116,5 +122,15 @@ function initGaleria() {
     fb.innerHTML = FEEDBACKS.length
       ? fotos('feedback', FEEDBACKS, 'Feedback de cliente – La Loba Ink')
       : vazios(4, 'colocar feedback ainda');
+  }
+
+  // Feedback a passar na página inicial: a lista vai duas vezes para o loop não ter "salto"
+  const mq = document.getElementById('feedback-marquee');
+  if (mq) {
+    const itens = FEEDBACKS.length
+      ? fotos('feedback', FEEDBACKS, 'Feedback de cliente – La Loba Ink')
+      : vazios(5, 'colocar feedback ainda');
+    mq.innerHTML = itens + itens;
+    mq.querySelectorAll('.foto').forEach((f, i) => { if (i >= mq.children.length / 2) f.setAttribute('aria-hidden', 'true'); });
   }
 }
