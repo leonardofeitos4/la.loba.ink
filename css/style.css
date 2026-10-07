@@ -274,8 +274,10 @@ a { color: inherit; }
 }
 
 @media (min-width: 520px) {
+  .page { padding-top: 40px; }
+  .page-sub { padding-top: 0; }
   .hero { margin: 0; }
-  .hero-photo { border-radius: 0 0 28px 28px; }
+  .hero-photo { border-radius: 28px; }
 }
 
 /* ═══════════════════════════════════
