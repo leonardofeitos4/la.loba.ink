@@ -23,8 +23,7 @@ const flows = {
       { l: '🌿 Conhecer os estilos', f: 'estilos' },
       { l: '🎨 Desenhos disponíveis', f: 'disponiveis' },
       { l: '🐺 Primeira tattoo', f: 'primeira' },
-      { l: '🎓 Workshops', f: 'workshops' },
-      { l: '📅 Agenda e eventos', f: 'agenda' },
+      { l: '📍 Guest spots', f: 'guest' },
       { l: '🖤 Quem é a Marta?', f: 'sobre' },
     ]
   },
@@ -143,21 +142,12 @@ const flows = {
     ]
   },
 
-  /* ── WORKSHOPS ── */
-  workshops: {
-    msg: `A Marta vai abrir <strong>workshops de tatuagem</strong>! 🎓<br><br>As datas e o local ainda estão a ser definidos. Queres entrar na lista para receber as novidades primeiro?`,
+  /* ── GUEST SPOTS ── */
+  guest: {
+    msg: `A Marta também tatua como <strong>guest</strong>, convidada noutros estúdios e cidades. 📍<br><br>As vagas de cada guest são poucas. Queres saber as próximas datas?`,
     chips: [
-      { l: '✅ Quero entrar na lista', wa: 'quero entrar na lista dos workshops de tatuagem.' },
-      { l: '↩ Menu principal', f: 'inicio' },
-    ]
-  },
-
-  /* ── AGENDA / GUEST / EVENTOS ── */
-  agenda: {
-    msg: `A Marta também faz <strong>guest spots</strong> e participa em <strong>eventos</strong> de tatuagem. 📅<br><br>Para saber onde ela vai estar e as próximas datas livres, fala com ela diretamente.`,
-    chips: [
-      { l: '💬 Ver próximas datas', wa: 'quero saber das próximas datas e eventos.' },
-      { l: '📸 Ver no Instagram', href: 'https://www.instagram.com/la.loba.ink/' },
+      { l: '📍 Ver datas', href: 'guest.html' },
+      { l: '💬 Reservar vaga', wa: 'quero saber das próximas datas de guest.' },
     ]
   },
 

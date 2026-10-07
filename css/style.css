@@ -218,8 +218,8 @@ a { color: inherit; }
 .feedbacks .foto, .feedbacks .foto:first-child { grid-column: auto; aspect-ratio: 9 / 16; }
 .feedbacks .foto img { object-fit: contain; background: var(--bg-2); }
 
-/* ── Workshops ── */
-.workshop-card {
+/* ── Guest ── */
+.guest-card {
   margin-top: 20px;
   padding: 26px 22px;
   border: 1px solid var(--line);
@@ -237,8 +237,8 @@ a { color: inherit; }
   border-radius: 999px;
   padding: 5px 12px;
 }
-.workshop-card h3 { font-family: var(--serif); font-weight: 500; font-size: 26px; margin: 14px 0 8px; }
-.workshop-card p { font-size: 14px; line-height: 1.6; color: #cfc8bf; margin-bottom: 18px; }
+.guest-card h3 { font-family: var(--serif); font-weight: 500; font-size: 26px; margin: 14px 0 8px; }
+.guest-card p { font-size: 14px; line-height: 1.6; color: #cfc8bf; margin-bottom: 18px; }
 
 /* ── Rodapé ── */
 .footer {
@@ -400,4 +400,29 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .marquee { overflow-x: auto; }
   .marquee-track { animation: none; }
+}
+
+/* Lista de datas dos guest spots */
+.guest-datas {
+  list-style: none;
+  margin: 0 0 20px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+.guest-datas li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.guest-datas strong { font-weight: 500; }
+.guest-datas span { color: var(--dim); text-align: right; }
+.guest-datas .guest-vazio {
+  justify-content: center;
+  color: var(--dim);
+  font-size: 12px;
+  letter-spacing: .06em;
+  border-bottom-style: dashed;
 }
