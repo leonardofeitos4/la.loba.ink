@@ -250,3 +250,14 @@
   .bot-launcher { right: 16px; bottom: 86px; }
   .wa-float { right: 16px; }
 }
+
+/* Fotos de um estilo dentro da conversa (tocar abre em ecrã inteiro) */
+.bot-fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 10px 0; }
+.bot-fotos img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  cursor: zoom-in;
+}

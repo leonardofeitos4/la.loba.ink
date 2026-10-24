@@ -4,3 +4,6 @@ ela.jpeg
 Thumbs.db
 .DS_Store
 .vercel
+
+# Originais (PNG e vídeos pesados) — o site usa as versões otimizadas em assets/
+material/

@@ -13,6 +13,16 @@
    }
 ═══════════════════════════════════ */
 
+/* Miniaturas reais de um estilo dentro do chat (as fotos vêm de ESTILOS, em galeria.js).
+   Tocar numa abre a foto em ecrã inteiro. */
+function fotosDoEstilo(id) {
+  const e = ESTILOS.find(x => x.id === id);
+  if (!e || !e.fotos.length) return '';
+  return `<div class="bot-fotos">${e.fotos.slice(0, 3).map(f =>
+    `<img src="assets/estilos/${id}/${f}" alt="Tattoo ${e.nome} – La Loba Ink" loading="lazy">`
+  ).join('')}</div>`;
+}
+
 const flows = {
 
   /* ── MENU PRINCIPAL ── */
@@ -23,6 +33,7 @@ const flows = {
       { l: '🌿 Conhecer os estilos', f: 'estilos' },
       { l: '🎨 Desenhos disponíveis', f: 'disponiveis' },
       { l: '🐺 Primeira tattoo', f: 'primeira' },
+      { l: '🎬 Ver vídeos', f: 'videos' },
       { l: '📍 Guest spots', f: 'guest' },
       { l: '🖤 Quem é a Marta?', f: 'sobre' },
     ]
@@ -54,7 +65,7 @@ const flows = {
     ]
   },
   est_fineline: {
-    msg: `<strong>Fineline</strong> é o traço fino e delicado. Perfeito para tattoos discretas, símbolos e desenhos minimalistas. ✒️`,
+    msg: `<strong>Fineline</strong> é o traço fino e delicado. Perfeito para tattoos discretas: libélulas, ramos, símbolos e desenhos minimalistas. ✒️<br><br>Alguns trabalhos da Marta:${fotosDoEstilo('fineline')}`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Fineline.' },
       { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=fineline' },
@@ -62,7 +73,7 @@ const flows = {
     ]
   },
   est_floral: {
-    msg: `<strong>Floral Fineline</strong> são flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo. 🌿<br><br>É uma das especialidades da Marta.`,
+    msg: `<strong>Floral Fineline</strong> são flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo. 🌿<br><br>É uma das especialidades da Marta: peças que sobem pela anca, pelo ombro ou pelo braço, com flores, folhas e até borboletas.${fotosDoEstilo('floral-fineline')}`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Floral Fineline.' },
       { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=floral-fineline' },
@@ -70,7 +81,7 @@ const flows = {
     ]
   },
   est_microrealismo: {
-    msg: `<strong>Microrealismo</strong> é detalhe de fotografia em tamanho pequeno: retratos, animais, objetos com significado. 🔍<br><br>Funciona melhor a partir de uns 5 cm, para o detalhe durar com o tempo.`,
+    msg: `<strong>Microrealismo</strong> é detalhe de fotografia em tamanho pequeno: retratos, animais, objetos com significado. 🔍<br><br>A Marta já fez retratos de pessoas queridas, bebés, animais de estimação e peças com caveira e flores.${fotosDoEstilo('microrealismo')}Funciona melhor a partir de uns 5 cm, para o detalhe durar com o tempo.`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Microrealismo.' },
       { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=microrealismo' },
@@ -78,7 +89,7 @@ const flows = {
     ]
   },
   est_realismo: {
-    msg: `<strong>Realismo</strong> são peças maiores, com sombra e volume, fiéis à referência. 🖤<br><br>Projetos grandes podem ser feitos em mais de uma sessão.`,
+    msg: `<strong>Realismo</strong> são peças maiores, com sombra e volume, fiéis à referência. 🖤<br><br>Projetos grandes podem ser feitos em mais de uma sessão.${fotosDoEstilo('realismo')}`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Realismo.' },
       { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=realismo' },
@@ -86,7 +97,7 @@ const flows = {
     ]
   },
   est_lettering: {
-    msg: `<strong>Lettering</strong> é escrita com estilo: nomes, datas, frases. A letra é pensada para ti e para o local do corpo. ✍️`,
+    msg: `<strong>Lettering</strong> é escrita com estilo: nomes, datas, frases. A letra é pensada para ti e para o local do corpo, e pode levar detalhes como uma coroa, uma data ou um pequeno símbolo. ✍️${fotosDoEstilo('lettering')}`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Lettering.' },
       { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=lettering' },
@@ -142,6 +153,18 @@ const flows = {
     ]
   },
 
+  /* ── VÍDEOS ── */
+  videos: {
+    msg: `Há dois vídeos da Marta: 🎬<br><br>
+          • <strong>A minha história</strong>: como a Marta desenha e cria cada peça, do papel à pele<br>
+          • <strong>Bastidores</strong>: a Marta a tatuar no estúdio<br><br>
+          Estão na página inicial e na página Sobre.`,
+    chips: [
+      { l: '🎬 Ver os vídeos', href: 'index.html#em-video' },
+      { l: '🖤 Quem é a Marta?', f: 'sobre' },
+    ]
+  },
+
   /* ── GUEST SPOTS ── */
   guest: {
     msg: `A Marta também tatua como <strong>guest</strong>, convidada noutros estúdios e cidades. 📍<br><br>As vagas de cada guest são poucas. Queres saber as próximas datas?`,
@@ -153,8 +176,9 @@ const flows = {
 
   /* ── SOBRE ── */
   sobre: {
-    msg: `A <strong>Marta Loba</strong> é a artista por trás da La Loba Ink. 🐺<br><br><em>"A tua história, a minha arte."</em><br><br>Trabalha com traço fino, flores e microrealismo, sempre com desenho exclusivo, pensado para o corpo e a história de cada pessoa.`,
+    msg: `A <strong>Marta Loba</strong> é a artista por trás da La Loba Ink. 🐺<br><br><em>"A tua história, a minha arte."</em><br><br>Trabalha com traço fino, flores e microrealismo, e também com realismo e lettering, sempre com desenho exclusivo, pensado para o corpo e a história de cada pessoa. Cada peça começa no papel ou no tablet, desenhada por ela.`,
     chips: [
+      { l: '🎬 Ver a história dela', href: 'sobre.html' },
       { l: '🌿 Ver os estilos', f: 'estilos' },
       { l: '💬 Falar com a Marta', wa: 'quero falar com a Marta sobre uma tattoo.' },
     ]
