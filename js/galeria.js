@@ -9,18 +9,18 @@
    As fotos são 4:5 (1080x1350, formato do Instagram).
 ═══════════════════════════════════ */
 
-/* Estilos — os três primeiros são os da bio do Instagram */
+/* Estilos — os três primeiros são os da bio do Instagram; Floral Fineline abre primeiro (pedido da Marta) */
 const ESTILOS = [
-  {
-    id: 'fineline',
-    nome: 'Fineline',
-    desc: 'Traço fino e delicado, para tattoos discretas e elegantes.',
-    fotos: ['1.jpg', '2.jpg', '3.jpg'],
-  },
   {
     id: 'floral-fineline',
     nome: 'Floral Fineline',
     desc: 'Flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo.',
+    fotos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
+  },
+  {
+    id: 'fineline',
+    nome: 'Fineline',
+    desc: 'Traço fino e delicado, para tattoos discretas e elegantes.',
     fotos: ['1.jpg', '2.jpg', '3.jpg'],
   },
   {

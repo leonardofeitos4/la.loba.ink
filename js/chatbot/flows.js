@@ -55,10 +55,10 @@ const flows = {
 
   /* ── ESTILOS ── */
   estilos: {
-    msg: `A Marta é especialista em <strong>Fineline</strong>, <strong>Floral Fineline</strong> e <strong>Microrealismo</strong>, e também faz Realismo e Lettering. Qual combina mais contigo?`,
+    msg: `A Marta é especialista em <strong>Floral Fineline</strong>, <strong>Fineline</strong> e <strong>Microrealismo</strong>, e também faz Realismo e Lettering. Qual combina mais contigo?`,
     chips: [
-      { l: 'Fineline', f: 'est_fineline' },
       { l: 'Floral Fineline', f: 'est_floral' },
+      { l: 'Fineline', f: 'est_fineline' },
       { l: 'Microrealismo', f: 'est_microrealismo' },
       { l: 'Realismo', f: 'est_realismo' },
       { l: 'Lettering', f: 'est_lettering' },
@@ -73,7 +73,7 @@ const flows = {
     ]
   },
   est_floral: {
-    msg: `<strong>Floral Fineline</strong> são flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo. 🌿<br><br>É uma das especialidades da Marta: peças que sobem pela anca, pelo ombro ou pelo braço, com flores, folhas e até borboletas.${fotosDoEstilo('floral-fineline')}`,
+    msg: `<strong>Floral Fineline</strong> são flores e folhagens em traço fino, desenhadas para acompanhar o movimento do corpo. 🌿<br><br>É uma das especialidades da Marta: peças que acompanham a anca, o antebraço ou até descer pela mão, com flores, folhas e ramos.${fotosDoEstilo('floral-fineline')}`,
     chips: [
       { l: '💬 Quero orçamento', wa: 'quero um orçamento de tattoo em Floral Fineline.' },
       { l: '🖼️ Ver trabalhos', href: 'trabalhos.html?estilo=floral-fineline' },
